@@ -130,8 +130,8 @@ function loadAndDrawPowerChart() {
     });
 }
 
-$(window).resize(function () {
-    drawOutChart();
-    drawInChart();
-    drawPowerChart();
-});
+//$(window).resize(function () {
+//    drawOutChart();
+//    drawInChart();
+//    drawPowerChart();
+//});
