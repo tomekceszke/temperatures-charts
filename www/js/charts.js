@@ -26,7 +26,7 @@ function loadAndDrawOutChart() {
     dataTable.addColumn('datetime', 'Time');
     dataTable.addColumn('number', 'Out');
     $.ajax({
-        url: 'https://api.thingspeak.com/channels/' + config.channelId + '/feeds.json',
+        url: 'https://api.thingspeak.com/channels/' + config.outChannelId + '/feeds.json',
         data: {
             'days': 7,
             'average': 60,
@@ -36,7 +36,7 @@ function loadAndDrawOutChart() {
         if (data) {
             $.each(data.feeds, function (i, row) {
                 dataTable.addRow([new Date(row.created_at),
-                                          parseFloat(row.field2),
+                                          parseFloat(row.field1),
                                          ]);
             });
             var options = {
@@ -60,10 +60,10 @@ function loadAndDrawOutChart() {
 function loadAndDrawInChart() {
     var dataTable = new google.visualization.DataTable();
     dataTable.addColumn('datetime', 'Time');
-    dataTable.addColumn('number', 'Living');
-    dataTable.addColumn('number', 'Bedroom');
+    dataTable.addColumn('number', 'In');
+    /*dataTable.addColumn('number', 'Bedroom');*/
     $.ajax({
-        url: 'https://api.thingspeak.com/channels/' + config.channelId + '/feeds.json',
+        url: 'https://api.thingspeak.com/channels/' + config.inChannelId + '/feeds.json',
         data: {
             'days': 1,
             'average': 30,
@@ -74,7 +74,7 @@ function loadAndDrawInChart() {
             $.each(data.feeds, function (i, row) {
                 dataTable.addRow([new Date(row.created_at),
                                           parseFloat(row.field1),
-                                          parseFloat(row.field4),
+                                          /*parseFloat(row.field4),*/
                                          ]);
             });
             var options = {
@@ -101,7 +101,7 @@ function loadAndDrawPowerChart() {
     dataTable.addColumn('datetime', 'Time');
     dataTable.addColumn('number', 'Power');
     $.ajax({
-        url: 'https://api.thingspeak.com/channels/' + config.channelId + '/feeds.json',
+        url: 'https://api.thingspeak.com/channels/' + config.powerChannelId + '/feeds.json',
         data: {
             'days': 1,
             'round': 1,
@@ -110,7 +110,7 @@ function loadAndDrawPowerChart() {
         if (data) {
             $.each(data.feeds, function (i, row) {
                 dataTable.addRow([new Date(row.created_at),
-                                          parseFloat(row.field3),
+                                          parseFloat(row.field1),
                                          ]);
             });
             var options = {
