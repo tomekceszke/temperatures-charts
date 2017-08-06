@@ -10,7 +10,7 @@ Set of the charts which visualize temperatures collected on ThingSpeak from diff
 * open  [www/index.html](www/index.html) in web browser
 
 ## Demo
-http://demo.ceszke.com/temperatures/
+http://demo.ceszke.com/temperatures-charts/
 
 
 ## Technology stack
